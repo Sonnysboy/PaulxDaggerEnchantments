@@ -1,0 +1,8 @@
+enchantment.enlighted=Enlighted
+paulxdagger.enchantment.enlighted.tooltip=Can heal hearts when taking damage.
+
+enchantment.armored=Armored
+paulxdagger.enchantment.armored.tooltip=Take less damage from entities.
+
+enchantment.enderwalker=Ender Walker
+paulxdagger.enchantment.enderwalker.tooltip=Wither and Poison do not injure and|have a chance to heal at high levels.
