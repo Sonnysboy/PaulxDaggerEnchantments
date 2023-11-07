@@ -49,10 +49,10 @@ public abstract class EnchantmentBase extends Enchantment {
 
     /**
      *  Fired when the entity with the enchant attacks something.
-     * @param attacker The user damaged.
+     * @param attacker The user attacking.
      * @param level
      * @param event
      */
-    public void onUserAttack(EntityPlayer attacker, Entity victim, int level, AttackEntityEvent event) {
+    public void onUserAttack(EntityLivingBase attacker, Entity victim, int level, LivingHurtEvent event) {
     }
 }

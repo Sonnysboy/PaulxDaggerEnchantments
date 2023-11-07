@@ -6,3 +6,6 @@ paulxdagger.enchantment.armored.tooltip=Take less damage from entities.
 
 enchantment.enderwalker=Ender Walker
 paulxdagger.enchantment.enderwalker.tooltip=Wither and Poison do not injure and|have a chance to heal at high levels.
+
+enchantment.execute=Execute
+paulxdagger.enchantment.execute.tooltip=Damage buff when your target is at low hp.
