@@ -4,6 +4,7 @@ import com.google.common.base.Predicate;
 import com.paul.enchants.api.enchantments.EnchantmentBase;
 import com.paul.enchants.mod.PaulAndDaggerEnchantments;
 
+import com.paul.enchants.mod.proxy.ClientProxy;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnumEnchantmentType;

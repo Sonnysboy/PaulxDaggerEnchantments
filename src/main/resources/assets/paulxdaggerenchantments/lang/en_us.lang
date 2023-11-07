@@ -9,3 +9,7 @@ paulxdagger.enchantment.enderwalker.tooltip=Wither and Poison do not injure and|
 
 enchantment.execute=Execute
 paulxdagger.enchantment.execute.tooltip=Damage buff when your target is at low hp.
+
+
+enchantment.lifesteal=Execute
+paulxdagger.enchantment.lifesteal.tooltip=A chance to regain health when attacking.
