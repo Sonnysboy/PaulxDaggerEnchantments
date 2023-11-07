@@ -3,10 +3,16 @@ package com.paul.enchants.mod.enchantments.weapon;
 import com.paul.enchants.api.enchantments.weapon.WeaponEnchantmentBase;
 import com.paul.enchants.mod.PaulAndDaggerEnchantments;
 
+import com.paul.enchants.mod.potions.EntityPotionTracker;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.init.MobEffects;
+import net.minecraft.init.PotionTypes;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.potion.PotionType;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.event.RegistryEvent;
@@ -24,6 +30,7 @@ public class EnchantmentExecute extends WeaponEnchantmentBase {
 
     @Override
     public void onUserAttack(EntityLivingBase attacker, Entity victim, int level, LivingHurtEvent event) {
+        EntityPotionTracker.getInstance().trackPotionEffect(attacker, MobEffects.STRENGTH, 2);
         if (victim instanceof EntityLivingBase) {
             System.out.println(((EntityLivingBase) victim).getHealth());
             System.out.println(((EntityLivingBase) victim).getHealth() * 0.34);

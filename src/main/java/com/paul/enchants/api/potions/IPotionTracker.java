@@ -1,8 +1,10 @@
 package com.paul.enchants.api.potions;
 
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.init.PotionTypes;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.potion.PotionType;
 
 /**
  *  A class for tracking and handling infinite potion effects on entities.
@@ -11,18 +13,23 @@ public interface IPotionTracker {
 
     /**
      * Tracks an infinite potion effect on an entity, infinitely re-applying it until they are untracked.
+     *
      * @param entity The entity to track
      * @param type The type of potion
      * @param amp The strength [amplifier] of potion
+     * @return true if this is a newly-applied effect, i.e we weren't tracking it on them before.
+     * False if we were already tracking this effect.
      */
-    void trackPotionEffect( EntityLivingBase entity, Potion type, int amp );
+    boolean trackPotionEffect(EntityLivingBase entity, Potion type, int amp );
 
 
     /**
      * Untracks all potion effects from the entity.
+     * This method returns false if the entity wasn't even being tracked in the first place.
      * @param entity The entity to untrack potions from.
+     * @return Whether we even removed anything in the first place.
      */
-    void untrackPotionEffects(EntityLivingBase entity);
+    boolean untrackPotionEffects(EntityLivingBase entity);
 
     /**
      *
@@ -35,17 +42,8 @@ public interface IPotionTracker {
      *     <li>We weren't tracking <code>type</code>, so there was nothing to remove.</li>
      * </ul>
      */
-    boolean untrackPotionEffect(EntityLivingBase entity, Potion type);
+    boolean untrackPotionEffect(EntityLivingBase entity,Potion type);
 
 
-
-    /**
-     * Updates the potion effect on an entity, i.e replacing strength I with strength II.
-     * If the entity isn't already being tracked, it will track them.
-     * @param entity The entity to update.
-     * @param type The potion to update on the entity
-     * @param amp The new amplifier
-     */
-    void updatePotionEffect(EntityLivingBase entity, Potion type, int amp);
 
 }

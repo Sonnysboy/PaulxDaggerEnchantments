@@ -6,42 +6,62 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.potion.Potion;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
- *  Defines the tracker itself. When we track a potion effect, we will completely overwrite the potion if the entity already has one active, so be warned!
+ * Defines the tracker itself. When we track a potion effect, we will completely overwrite the potion if the entity already has one active, so be warned!
  */
 public class EntityPotionTracker implements IPotionTracker {
 
 
-    /**
-     *  This map will store the entities and their tracked potion effects and amplifiers..
-     */
-    private final static HashMap<EntityLivingBase, HashMap<Potion, Integer>> tracker = new HashMap<>();
+    private static EntityPotionTracker instance;
 
+    /**
+     * This map will store the entities and their tracked potion effects and amplifiers..
+     */
+    private final static Map<EntityLivingBase, HashMap<Potion, Integer>> tracker = Maps.newConcurrentMap();
+
+    /**
+     * Tracks an infinite potion effect on an entity, infinitely re-applying it until they are untracked.
+     *
+     * @param entity The entity to track
+     * @param type   The type of potion
+     * @param amp    The strength [amplifier] of potion
+     * @return true if this is a newly-applied effect, i.e we weren't tracking it on them before.
+     * False if we were already tracking this effect.
+     */
     @Override
-    public void trackPotionEffect(EntityLivingBase entity, Potion type, int amp) {
+    public boolean trackPotionEffect(EntityLivingBase entity, Potion type, int amp) {
+
         if (!trackingEntity(entity)) {
             System.out.println("Creating new map for tracking entity " + entity);
         }
         HashMap<Potion, Integer> currentTracking = tracker.getOrDefault(entity, new HashMap<>());
         System.out.println("Updating tracked for: " + entity + "\nCurrent:" + currentTracking);
-        currentTracking.put(type, amp); // add the potion effect to the tracker
+        currentTracking.put(type, amp);
+        tracker.put(entity, currentTracking);
         System.out.println("Tracked potion effect " + type.getName() + " at level " + amp + " for " + entity);
+        return true;
     }
 
+    /**
+     * Untracks all potion effects from the entity.
+     * This method returns false if the entity wasn't even being tracked in the first place.
+     *
+     * @param entity The entity to untrack potions from.
+     * @return Whether we even removed anything in the first place.
+     */
     @Override
-    public void untrackPotionEffects(EntityLivingBase entity) {
+    public boolean untrackPotionEffects(EntityLivingBase entity) {
 
         System.out.println("Removing " + entity + " from the tracking map.");
-        tracker.remove(entity);
-        System.out.println("Finished untracking " + entity);
+        return tracker.remove(entity) == null;
 
     }
 
     /**
-     *
      * @param entity The entity to untrack the potion type from.
-     * @param type The type of potion to untrack off the entity.
+     * @param type   The type of potion to untrack off the entity.
      * @return True if we successfully removed the potion effect.
      * This method can return false if:
      * <ul>
@@ -52,8 +72,7 @@ public class EntityPotionTracker implements IPotionTracker {
     @Override
     public boolean untrackPotionEffect(EntityLivingBase entity, Potion type) {
         System.out.println("Untracking " + type.getName() + " from " + entity);
-        if (!(isPotionTracked(entity, type)))
-        {
+        if (!(isPotionTracked(entity, type))) {
             System.out.println("Entity had no potions tracking, so nothing is happening.");
             return false;
         }
@@ -62,23 +81,16 @@ public class EntityPotionTracker implements IPotionTracker {
         return true;
     }
 
-    @Override
-    public void updatePotionEffect(EntityLivingBase entity, Potion type, int amp) {
-
-    }
-
     /**
-     *
      * @param entity The entity to check
-     * @param type  The type of potion we're checking.
-     * @return      True if the specific potion type is being tracked for the entity
+     * @param type   The type of potion we're checking.
+     * @return True if the specific potion type is being tracked for the entity
      */
     public boolean isPotionTracked(EntityLivingBase entity, Potion type) {
         return trackingEntity(entity) && tracker.get(entity).containsKey(type);
     }
 
     /**
-     *
      * @param entity The entity to check
      * @return True if the entity has a potion effect currently being tracked.
      */
@@ -87,23 +99,36 @@ public class EntityPotionTracker implements IPotionTracker {
     }
 
     /**
-     *
      * @param entity The entity to grab the tracked potions of.
      * @return The tracked potion effects of the entity, or an empty map if there are none.
      */
-    public HashMap<Potion, Integer> getTrackedPotions(EntityLivingBase entity){
+    public HashMap<Potion, Integer> getTrackedPotions(EntityLivingBase entity) {
         if (!trackingEntity(entity)) return Maps.newHashMap();
         return tracker.get(entity);
     }
 
     /**
-     *
      * @param entity The entity to check on.
-     * @param type the type of potion to check.
+     * @param type   the type of potion to check.
      * @return the level of the potion effect we're tracking, or 0 if we aren't tracking it.
      */
     public int getTrackedPotionLevel(EntityLivingBase entity, Potion type) {
         if (!isPotionTracked(entity, type)) return 0;
         return tracker.get(entity).get(type);
+    }
+
+
+    /**
+     * @return The tracker map.
+     */
+    public Map<EntityLivingBase, HashMap<Potion, Integer>> getTrackers() {
+        return tracker;
+    }
+
+    public static EntityPotionTracker getInstance() {
+        if (instance == null) {
+            instance = new EntityPotionTracker();
+        }
+        return instance;
     }
 }
