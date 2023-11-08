@@ -1,6 +1,7 @@
 package com.paul.enchants.api.enchantments.armor;
 
 import com.paul.enchants.api.enchantments.EnchantmentBase;
+
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.util.text.translation.I18n;

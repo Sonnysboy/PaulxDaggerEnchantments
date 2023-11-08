@@ -17,46 +17,43 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 /**
- * Ender walker is a boots enchantment that negates poison and wither damage.
- * It is also going to negate instant damage potions because i dont know how to detect poison.
+ * Ender walker is a boots enchantment that negates poison and wither damage. It
+ * is also going to negate instant damage potions because i dont know how to
+ * detect poison.
  */
 @Mod.EventBusSubscriber(modid = PaulAndDaggerEnchantments.MODID)
 public class EnchantmentEnderWalker extends ArmorEnchantmentBase {
     protected EnchantmentEnderWalker() {
-        super("enderwalker", Rarity.UNCOMMON, EnumEnchantmentType.ARMOR_FEET, new EntityEquipmentSlot[] {
-               EntityEquipmentSlot.FEET
-        });
+	super("enderwalker", Rarity.UNCOMMON, EnumEnchantmentType.ARMOR_FEET,
+		new EntityEquipmentSlot[] { EntityEquipmentSlot.FEET });
     }
 
     @Override
     public void onUserHurt(EntityLivingBase user, DamageSource source, int level, LivingHurtEvent event) {
-        user.sendMessage(new TextComponentString("ours was called!"));
-        if (source == DamageSource.MAGIC) {
-            event.setCanceled(true);
-        }
-        if (source == DamageSource.WITHER && level > 2) {
-            event.setCanceled(true);
-        }
-        if (level > 3) {
-            user.heal(0.4f);
-        }
+	if (source == DamageSource.MAGIC) {
+	    event.setCanceled(true);
+	}
+	if (source == DamageSource.WITHER && level > 2) {
+	    event.setCanceled(true);
+	}
+	if (level > 3) {
+	    user.heal(0.4f);
+	}
 
-        user.sendMessage(new TextComponentString("ours was called!"));
     }
-
 
     @SubscribeEvent
     public static void register(RegistryEvent.Register<Enchantment> register) {
-        register.getRegistry().register(new EnchantmentEnderWalker());
+	register.getRegistry().register(new EnchantmentEnderWalker());
     }
 
     @Override
     public String getIngameName() {
-        return TextFormatting.YELLOW + "Ender Walker";
+	return TextFormatting.YELLOW + "Ender Walker";
     }
 
     @Override
     public int getMaxLevel() {
-        return 4;
+	return 4;
     }
 }

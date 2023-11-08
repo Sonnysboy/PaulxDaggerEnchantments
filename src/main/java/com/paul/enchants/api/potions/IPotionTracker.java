@@ -1,10 +1,7 @@
 package com.paul.enchants.api.potions;
 
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.init.PotionTypes;
 import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.potion.PotionType;
 
 /**
  *  A class for tracking and handling infinite potion effects on entities.

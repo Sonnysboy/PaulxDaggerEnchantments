@@ -13,3 +13,5 @@ paulxdagger.enchantment.execute.tooltip=Damage buff when your target is at low h
 
 enchantment.lifesteal=Execute
 paulxdagger.enchantment.lifesteal.tooltip=A chance to regain health when attacking.
+
+enchantment.obsidianshield=Obsidian Shield paulxdagger.enchantment.obsidianshield.tooltip=Fire Resistance
