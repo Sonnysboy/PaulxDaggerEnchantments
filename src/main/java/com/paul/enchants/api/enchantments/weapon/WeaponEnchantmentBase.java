@@ -1,7 +1,6 @@
 package com.paul.enchants.api.enchantments.weapon;
 
 import com.paul.enchants.api.enchantments.EnchantmentBase;
-
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.util.text.translation.I18n;
@@ -16,7 +15,7 @@ public class WeaponEnchantmentBase extends EnchantmentBase {
      * @param type     The custom type.
      */
     protected WeaponEnchantmentBase(String name, Rarity rarityIn, EnumEnchantmentType type) {
-	super(name, rarityIn, type, new EntityEquipmentSlot[] { EntityEquipmentSlot.MAINHAND });
+        super(name, rarityIn, type, new EntityEquipmentSlot[]{EntityEquipmentSlot.MAINHAND});
     }
 
     /**
@@ -25,20 +24,20 @@ public class WeaponEnchantmentBase extends EnchantmentBase {
      *                 onto any armor piece.
      */
     protected WeaponEnchantmentBase(String name, Rarity rarityIn) {
-	this(name, rarityIn, EnumEnchantmentType.WEAPON);
+        this(name, rarityIn, EnumEnchantmentType.WEAPON);
     }
 
     public String getIngameName() {
-	return "";
+        return "";
     }
 
-//    this is because i can't seem to get localisation to work.
+    //    this is because i can't seem to get localisation to work.
     @Override
     public String getTranslatedName(int level) {
-	if (getIngameName().equals(""))
-	    return super.getTranslatedName(level);
-	String s = getIngameName();
-	return level == 1 && this.getMaxLevel() == 1 ? s
-		: s + " " + I18n.translateToLocal("enchantment.level." + level);
+        if (getIngameName().equals(""))
+            return super.getTranslatedName(level);
+        String s = getIngameName();
+        return level == 1 && this.getMaxLevel() == 1 ? s
+                : s + " " + I18n.translateToLocal("enchantment.level." + level);
     }
 }

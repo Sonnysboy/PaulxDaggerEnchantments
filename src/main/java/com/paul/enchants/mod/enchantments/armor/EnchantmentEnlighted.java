@@ -4,7 +4,6 @@ import com.google.common.base.Predicate;
 import com.paul.enchants.api.enchantments.armor.ArmorEnchantmentBase;
 import com.paul.enchants.mod.PaulAndDaggerEnchantments;
 import mcp.MethodsReturnNonnullByDefault;
-import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -13,9 +12,7 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.common.util.EnumHelper;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import javax.annotation.Nullable;
 
@@ -24,18 +21,12 @@ public class EnchantmentEnlighted extends
         ArmorEnchantmentBase {
 
 
-
     private static final EnumEnchantmentType TYPE = EnumHelper.addEnchantmentType("PXDE_ENLIGHTED", new Predicate<Item>() {
         @Override
         public boolean apply(@Nullable Item input) {
             return input instanceof ItemArmor;
         }
     });
-    @SubscribeEvent
-    public static void register(RegistryEvent.Register<Enchantment> register) { // needs to be static
-
-        register.getRegistry().register(new EnchantmentEnlighted());
-    }
 
     public EnchantmentEnlighted() {
         super("enlighted", Rarity.UNCOMMON);
@@ -56,7 +47,6 @@ public class EnchantmentEnlighted extends
     }
 
     /**
-     *
      * If nothing else works, this will.
      */
     @Override
@@ -65,8 +55,7 @@ public class EnchantmentEnlighted extends
 
         String s = TextFormatting.GOLD + "Enlighted";
 
-        if (this.isCurse())
-        {
+        if (this.isCurse()) {
             s = TextFormatting.RED + s;
         }
 

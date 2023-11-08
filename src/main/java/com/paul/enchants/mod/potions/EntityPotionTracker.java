@@ -12,7 +12,7 @@ import java.util.Map;
  * Defines the tracker itself. When we track a potion effect, we will completely overwrite the potion if the entity already has one active, so be warned!
  */
 public class EntityPotionTracker implements IPotionTracker {
-    
+
     // todo track the source of the potion effect aswell.
 
 

@@ -1,16 +1,18 @@
 [
-{
-  "modid": "paulxdaggerenchantments",
-  "name": "Paul X Dagger Enchantments",
-  "description": "some custom enchantments for us, mainly defensive enchants but oh well",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
-  "url": "",
-  "updateUrl": "",
-  "authorList": ["Paul"],
-  "credits": "all the modpacks we've played for driving us crazy.",
-  "logoFile": "",
-  "screenshots": [],
-  "dependencies": []
-}
+  {
+    "modid": "paulxdaggerenchantments",
+    "name": "Paul X Dagger Enchantments",
+    "description": "some custom enchantments for us, mainly defensive enchants but oh well",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": [
+      "Paul"
+    ],
+    "credits": "all the modpacks we've played for driving us crazy.",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
 ]

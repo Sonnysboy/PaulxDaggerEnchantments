@@ -3,10 +3,8 @@ package com.paul.enchants.mod.potions.handlers;
 import com.paul.enchants.mod.PaulAndDaggerEnchantments;
 import com.paul.enchants.mod.potions.EntityPotionTracker;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.init.MobEffects;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.potion.PotionType;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -14,14 +12,13 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import java.util.Map;
 
 /**
- *  This class handles the re-application of potion effects in the tracker.
- *  What this means is that it will keep the effect active on entities that are being tracked.
+ * This class handles the re-application of potion effects in the tracker.
+ * What this means is that it will keep the effect active on entities that are being tracked.
+ *
  * @see com.paul.enchants.mod.potions.EntityPotionTracker
  */
 @Mod.EventBusSubscriber(modid = PaulAndDaggerEnchantments.MODID)
 public class PotionUpdateHandler {
-
-
 
 
     @SubscribeEvent
@@ -36,12 +33,11 @@ public class PotionUpdateHandler {
             Map<Potion, Integer> potions = tracker.getTrackedPotions(ent);
             System.out.println("Found " + potions.size() + " tracked potions for entity " + ent);
             potions.forEach((potion, level) -> {
-                ent.addPotionEffect(new PotionEffect(potion, 20*5, level));
+                ent.addPotionEffect(new PotionEffect(potion, 20 * 5, level));
             });
         }
 
     }
-
 
 
 }

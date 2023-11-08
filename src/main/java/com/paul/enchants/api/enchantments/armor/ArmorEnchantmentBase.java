@@ -1,7 +1,6 @@
 package com.paul.enchants.api.enchantments.armor;
 
 import com.paul.enchants.api.enchantments.EnchantmentBase;
-
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.util.text.translation.I18n;
@@ -15,14 +14,15 @@ public class ArmorEnchantmentBase extends EnchantmentBase {
      * @param name     The name of enchantment
      * @param rarityIn Rarity
      * @param slots    Slots it can be applied on
-     * @param type The custom type.
+     * @param type     The custom type.
      */
     protected ArmorEnchantmentBase(String name, Rarity rarityIn, EnumEnchantmentType type, EntityEquipmentSlot[] slots) {
         super(name, rarityIn, type,
-                new EntityEquipmentSlot[] {
+                new EntityEquipmentSlot[]{
                         EntityEquipmentSlot.HEAD, EntityEquipmentSlot.CHEST, EntityEquipmentSlot.LEGS, EntityEquipmentSlot.FEET
                 });
     }
+
     /**
      * @param name     The name of enchantment
      * @param rarityIn Rarity
@@ -39,15 +39,16 @@ public class ArmorEnchantmentBase extends EnchantmentBase {
      */
     protected ArmorEnchantmentBase(String name, Rarity rarityIn) {
         this(name, rarityIn, EnumEnchantmentType.ARMOR,
-                new EntityEquipmentSlot[] {
+                new EntityEquipmentSlot[]{
                         EntityEquipmentSlot.HEAD, EntityEquipmentSlot.CHEST, EntityEquipmentSlot.LEGS, EntityEquipmentSlot.FEET
                 });
     }
+
     public String getIngameName() {
         return "";
     }
 
-//    this is because i can't seem to get localisation to work.
+    //    this is because i can't seem to get localisation to work.
     @Override
     public String getTranslatedName(int level) {
         if (getIngameName().equals("")) return super.getTranslatedName(level);

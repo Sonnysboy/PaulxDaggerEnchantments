@@ -9,8 +9,6 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static net.minecraftforge.fml.relauncher.Side.CLIENT;
-
 public class ClientProxy implements IProxy {
     @Override
     public void preInit(FMLPreInitializationEvent event) {
@@ -26,6 +24,7 @@ public class ClientProxy implements IProxy {
     public void postInit(FMLPostInitializationEvent event) {
 
     }
+
     @SideOnly(Side.CLIENT)
     public static void spawnParticle(World world, EnumParticleTypes type, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, int... arguments) {
         world.spawnParticle(type, x, y, z, xSpeed, ySpeed, zSpeed, arguments);

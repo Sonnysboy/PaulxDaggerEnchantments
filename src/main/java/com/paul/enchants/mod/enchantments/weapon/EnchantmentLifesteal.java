@@ -2,23 +2,20 @@ package com.paul.enchants.mod.enchantments.weapon;
 
 import com.paul.enchants.api.enchantments.weapon.WeaponEnchantmentBase;
 import com.paul.enchants.mod.PaulAndDaggerEnchantments;
-import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.text.DecimalFormat;
-import java.util.concurrent.ThreadLocalRandom;
 
 @Mod.EventBusSubscriber(modid = PaulAndDaggerEnchantments.MODID)
 public class EnchantmentLifesteal extends WeaponEnchantmentBase {
     private static final DecimalFormat df = new DecimalFormat("##.#");
-    protected EnchantmentLifesteal() {
+
+    public EnchantmentLifesteal() {
         super("lifesteal", Rarity.UNCOMMON);
     }
 
@@ -38,10 +35,6 @@ public class EnchantmentLifesteal extends WeaponEnchantmentBase {
         return 3;
     }
 
-    @SubscribeEvent
-    public static void register(RegistryEvent.Register<Enchantment> e) {
-        e.getRegistry().register(new EnchantmentLifesteal());
-    }
 
     @Override
     public String getIngameName() {
