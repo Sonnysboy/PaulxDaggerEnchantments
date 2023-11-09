@@ -8,6 +8,7 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -24,8 +25,18 @@ public class EnchantmentOverload extends ArmorEnchantmentBase {
 
 
     @Override
+    public void onLivingUpdate(EntityLivingBase entity, int level) {
+        entity.addPotionEffect(new PotionEffect(MobEffects.HEALTH_BOOST, 40, level-1));
+    }
+
+    @Override
     public String getIngameName() {
         return TextFormatting.GOLD + "Overload";
     }
 
+
+    @Override
+    public int getMaxLevel() {
+        return 3;
+    }
 }

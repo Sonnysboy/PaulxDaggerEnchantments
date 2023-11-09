@@ -30,7 +30,7 @@ public class Enchantments {
 
     @SubscribeEvent
     public static void register(RegistryEvent.Register<Enchantment> e) {
-        e.getRegistry().registerAll(ARMORED, ENDER_WALKER, ENLIGHTED, OVERLOAD, EXECUTE, LIFESTEAL);
+        e.getRegistry().registerAll(ARMORED, ENDER_WALKER, ENLIGHTED, OBSIDIAN_SHIELD, OVERLOAD, EXECUTE, LIFESTEAL);
         System.out.println("Registered all enchantments!");
     }
 
