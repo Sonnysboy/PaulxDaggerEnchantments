@@ -1,3 +1,4 @@
+// we might not actually need this which makes me sad because it's cool and worked first try
 package com.paul.enchants.mod.potions;
 
 import com.google.common.collect.Maps;
@@ -8,8 +9,11 @@ import net.minecraft.potion.Potion;
 import java.util.HashMap;
 import java.util.Map;
 
+
+
 /**
  * Defines the tracker itself. When we track a potion effect, we will completely overwrite the potion if the entity already has one active, so be warned!
+ *
  */
 public class EntityPotionTracker implements IPotionTracker {
 

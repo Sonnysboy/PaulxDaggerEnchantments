@@ -22,24 +22,6 @@ public class EnchantmentOverload extends ArmorEnchantmentBase {
         super("overload", Rarity.RARE);
     }
 
-    @SubscribeEvent
-    public static void absorptionUpdateHandler(LivingUpdateEvent e) {
-//	this DOES work but I am worried about all of the calls we're making here. Maybe shift all of the potion applying enchantments into their own little thing?
-
-        EntityLivingBase ent;
-
-        for (ItemStack item : (ent = e.getEntityLiving()).getArmorInventoryList()) {
-            if (item.isItemEnchanted()) {
-                int level;
-                if ((level = EnchantmentHelper.getEnchantmentLevel(Enchantments.OVERLOAD, item)) != 0) {
-                    tracker.trackPotionEffect(ent, MobEffects.ABSORPTION, level - 1);
-                    return;
-                }
-            }
-        }
-        if (tracker.isPotionTracked(ent, MobEffects.ABSORPTION))
-            tracker.untrackPotionEffect(ent, MobEffects.ABSORPTION);
-    }
 
     @Override
     public String getIngameName() {

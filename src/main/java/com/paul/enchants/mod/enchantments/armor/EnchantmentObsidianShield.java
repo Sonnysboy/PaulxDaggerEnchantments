@@ -7,6 +7,7 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -33,22 +34,16 @@ public class EnchantmentObsidianShield extends ArmorEnchantmentBase {
         return 1;
     }
 
-    @SubscribeEvent
-    public static void fireResistanceUpdater(LivingUpdateEvent e) {
-//	this DOES work but I am worried about all of the calls we're making here. Maybe shift all of the potion applying enchantments into their own little thing?
-
-        EntityLivingBase ent;
-
-        for (ItemStack item : (ent = e.getEntityLiving()).getArmorInventoryList()) {
+    public void onLivingUpdate(EntityLivingBase ent, int level) {
+        for (ItemStack item : (ent.getArmorInventoryList())) {
             if (item.isItemEnchanted()) {
                 if (EnchantmentHelper.getEnchantmentLevel(instance, item) != 0) {
-                    tracker.trackPotionEffect(ent, MobEffects.FIRE_RESISTANCE, 0);
+                    ent.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 4*20));
                     return;
                 }
             }
         }
-        if (tracker.isPotionTracked(ent, MobEffects.FIRE_RESISTANCE))
-            tracker.untrackPotionEffect(ent, MobEffects.FIRE_RESISTANCE);
     }
+
 
 }
