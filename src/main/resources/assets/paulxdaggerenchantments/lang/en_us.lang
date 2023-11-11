@@ -12,10 +12,10 @@ enchantment.paulxdaggerenchantments.execute.desc=Damage buff when your target is
 
 
 enchantment.lifesteal=Lifesteal
-paulxdagger.enchantment.lifesteal.tooltip=A chance to regain health when attacking.
+paulxdagger.enchantment.lifesteal.desc=A chance to regain health when attacking.
 
 enchantment.obsidianshield=Obsidian Shield
-paulxdagger.enchantment.obsidianshield.tooltip=Fire Resistance
+paulxdagger.enchantment.obsidianshield.desc=Fire Resistance
 
 enchantment.deathbringer=Deathbringer
 enchantment.paulxdaggerenchantments.deathbringer.desc=Chance to deal double damage.
@@ -31,3 +31,6 @@ enchantment.paulxdaggerenchantments.endershift.desc=Gives a speed/health boost a
 
 enchantment.implants=Implants
 enchantment.paulxdaggerenchantments.implants.desc=Saturation
+
+enchantments.overload=Overload
+enchantment.paulxdaggerenchantments.overload.desc=Health Boost
