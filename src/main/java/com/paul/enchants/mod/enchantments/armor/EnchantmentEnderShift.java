@@ -33,6 +33,7 @@ public class EnchantmentEnderShift extends ArmorEnchantmentBase {
     public void onUserHurt(EntityLivingBase user, DamageSource source, int level, LivingHurtEvent event) {
 	if (!(user.getHealth() - event.getAmount() <= 0.0 && canEnderShift(user.getUniqueID())))
 	    return;
+	if (source == DamageSource.OUT_OF_WORLD) return;
 
 	UUID uuid = user.getUniqueID();
 
