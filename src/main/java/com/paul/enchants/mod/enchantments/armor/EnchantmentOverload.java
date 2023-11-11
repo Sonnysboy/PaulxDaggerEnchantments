@@ -20,7 +20,7 @@ public class EnchantmentOverload extends ArmorEnchantmentBase {
     private static EntityPotionTracker tracker;
 
     public EnchantmentOverload() {
-        super("overload", Rarity.RARE);
+        super("overload", Rarity.RARE, 3);
     }
 
 
@@ -35,8 +35,5 @@ public class EnchantmentOverload extends ArmorEnchantmentBase {
     }
 
 
-    @Override
-    public int getMaxLevel() {
-        return 3;
-    }
+
 }

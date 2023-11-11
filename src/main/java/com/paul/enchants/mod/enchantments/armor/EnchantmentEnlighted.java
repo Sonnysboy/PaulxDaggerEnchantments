@@ -29,7 +29,7 @@ public class EnchantmentEnlighted extends
     });
 
     public EnchantmentEnlighted() {
-        super("enlighted", Rarity.UNCOMMON);
+        super("enlighted", Rarity.UNCOMMON, 3);
     }
 
 
@@ -39,11 +39,6 @@ public class EnchantmentEnlighted extends
         if ((Math.random()) < (0.015 * level)) {
             user.heal(.5f * level);
         }
-    }
-
-    @Override
-    public int getMaxLevel() {
-        return 3;
     }
 
     /**

@@ -16,7 +16,7 @@ public class EnchantmentLifesteal extends WeaponEnchantmentBase {
     private static final DecimalFormat df = new DecimalFormat("##.#");
 
     public EnchantmentLifesteal() {
-        super("lifesteal", Rarity.UNCOMMON);
+        super("lifesteal", Rarity.UNCOMMON, 3);
     }
 
 
@@ -30,10 +30,6 @@ public class EnchantmentLifesteal extends WeaponEnchantmentBase {
         }
     }
 
-    @Override
-    public int getMaxLevel() {
-        return 3;
-    }
 
 
     @Override

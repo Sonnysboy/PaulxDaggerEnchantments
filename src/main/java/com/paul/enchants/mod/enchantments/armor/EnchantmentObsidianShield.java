@@ -17,7 +17,7 @@ public class EnchantmentObsidianShield extends ArmorEnchantmentBase {
     private static EntityPotionTracker tracker = EntityPotionTracker.getInstance();
 
     public EnchantmentObsidianShield() {
-        super("obsidianshield", Rarity.UNCOMMON);
+        super("obsidianshield", Rarity.UNCOMMON, 1);
     }
 
     @Override
@@ -26,10 +26,6 @@ public class EnchantmentObsidianShield extends ArmorEnchantmentBase {
     }
 
     @Override
-    public int getMaxLevel() {
-        return 1;
-    }
-
     public void onLivingUpdate(EntityLivingBase ent, int level) {
         ent.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 4 * 20));
     }

@@ -1,18 +1,33 @@
 enchantment.enlighted=Enlighted
-paulxdagger.enchantment.enlighted.tooltip=Can heal hearts when taking damage.
+enchantment.paulxdaggerenchantments.enlighted.desc=Can heal hearts when taking damage.
 
 enchantment.armored=Armored
-paulxdagger.enchantment.armored.tooltip=Take less damage from entities.
+enchantment.paulxdaggerenchantments.armored.desc=Take less damage from entities.
 
 enchantment.enderwalker=Ender Walker
-paulxdagger.enchantment.enderwalker.tooltip=Wither and Poison do not injure and|have a chance to heal at high levels.
+enchantment.paulxdaggerenchantments.enderwalker.desc=Wither and Poison do not injure and|have a chance to heal at high levels.
 
 enchantment.execute=Execute
-paulxdagger.enchantment.execute.tooltip=Damage buff when your target is at low hp.
+enchantment.paulxdaggerenchantments.execute.desc=Damage buff when your target is at low hp.
 
 
-enchantment.lifesteal=Execute
+enchantment.lifesteal=Lifesteal
 paulxdagger.enchantment.lifesteal.tooltip=A chance to regain health when attacking.
 
 enchantment.obsidianshield=Obsidian Shield
 paulxdagger.enchantment.obsidianshield.tooltip=Fire Resistance
+
+enchantment.deathbringer=Deathbringer
+enchantment.paulxdaggerenchantments.deathbringer.desc=Chance to deal double damage.
+
+enchantment.valor=Valor
+enchantment.paulxdaggerenchantments.valor.desc=Reduces incoming damage while wielding a sword by up to 22.5%
+
+enchantment.deathgod=Death God
+enchantment.paulxdaggerenchantments.deathgod.desc=Attacks that bring your HP to (level+4) hearts or lower| have a chance to heal you for (level+5) hearts instead.
+
+enchantment.endershift=Ender Shift
+enchantment.paulxdaggerenchantments.endershift.desc=Gives a speed/health boost at low hp.
+
+enchantment.implants=Implants
+enchantment.paulxdaggerenchantments.implants.desc=Saturation

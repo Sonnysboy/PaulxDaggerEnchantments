@@ -25,9 +25,7 @@ public class ClientProxy implements IProxy {
 
     }
 
-    @SideOnly(Side.CLIENT)
     public static void spawnParticle(World world, EnumParticleTypes type, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, int... arguments) {
         world.spawnParticle(type, x, y, z, xSpeed, ySpeed, zSpeed, arguments);
-
     }
 }

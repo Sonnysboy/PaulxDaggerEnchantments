@@ -16,11 +16,9 @@ public class ArmorEnchantmentBase extends EnchantmentBase {
      * @param slots    Slots it can be applied on
      * @param type     The custom type.
      */
-    protected ArmorEnchantmentBase(String name, Rarity rarityIn, EnumEnchantmentType type, EntityEquipmentSlot[] slots) {
+    public ArmorEnchantmentBase(String name, Rarity rarityIn, EnumEnchantmentType type, EntityEquipmentSlot[] slots, int maxLevel) {
         super(name, rarityIn, type,
-                new EntityEquipmentSlot[]{
-                        EntityEquipmentSlot.HEAD, EntityEquipmentSlot.CHEST, EntityEquipmentSlot.LEGS, EntityEquipmentSlot.FEET
-                });
+             slots, maxLevel);
     }
 
     /**
@@ -28,8 +26,8 @@ public class ArmorEnchantmentBase extends EnchantmentBase {
      * @param rarityIn Rarity
      * @param slots    Slots it can be applied on
      */
-    protected ArmorEnchantmentBase(String name, Rarity rarityIn, EntityEquipmentSlot[] slots) {
-        this(name, rarityIn, EnumEnchantmentType.ARMOR, slots);
+    public ArmorEnchantmentBase(String name, Rarity rarityIn, EntityEquipmentSlot[] slots, int maxLevel) {
+        this(name, rarityIn, EnumEnchantmentType.ARMOR, slots, maxLevel);
     }
 
     /**
@@ -37,11 +35,11 @@ public class ArmorEnchantmentBase extends EnchantmentBase {
      * @param rarityIn Rarity
      *                 This constructor will allow the enchantment to be put onto any armor piece.
      */
-    protected ArmorEnchantmentBase(String name, Rarity rarityIn) {
+    public ArmorEnchantmentBase(String name, Rarity rarityIn, int maxLevel) {
         this(name, rarityIn, EnumEnchantmentType.ARMOR,
                 new EntityEquipmentSlot[]{
                         EntityEquipmentSlot.HEAD, EntityEquipmentSlot.CHEST, EntityEquipmentSlot.LEGS, EntityEquipmentSlot.FEET
-                });
+                }, maxLevel);
     }
 
     public String getIngameName() {

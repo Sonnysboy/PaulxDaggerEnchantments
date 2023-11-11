@@ -23,7 +23,6 @@ public class PotionUpdateHandler {
 
     @SubscribeEvent
     public static void onUpdate(LivingEvent.LivingUpdateEvent event) {
-        System.out.println("LivingUpdateEvent called");
 
         EntityLivingBase ent = event.getEntityLiving();
         EntityPotionTracker tracker = EntityPotionTracker.getInstance();

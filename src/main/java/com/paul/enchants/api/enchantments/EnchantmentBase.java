@@ -13,22 +13,27 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
  * Enchantments will register themselves
  */
 public abstract class EnchantmentBase extends Enchantment {
+    
+    private int maxLevel;
     /**
      * @param name     The name of enchantment
      * @param rarityIn Rarity
      * @param typeIn   Enchant Type
      * @param slots    Slots it can be applied on
      */
-    protected EnchantmentBase(String name, Rarity rarityIn, EnumEnchantmentType typeIn, EntityEquipmentSlot[] slots) {
+    protected EnchantmentBase(String name, Rarity rarityIn, EnumEnchantmentType typeIn, EntityEquipmentSlot[] slots, int maxLevel) {
         super(rarityIn, typeIn, slots);
         setName(name);
         setRegistryName(name);
+        this.maxLevel = maxLevel;
     }
 
     @SuppressWarnings("deprecation")
     public String[] getTooltipDetails() {
-        final String unloc = String.format("description." + this.getName());
+        final String unloc = String.format("paulxdagger." + this.getName()+".tooltip");
+        System.out.println(unloc);
         String loc = I18n.translateToLocalFormatted(unloc);
+        System.out.println(loc);
         return unloc.equals(loc) ? new String[0] : loc.split("\\|"); // | wwill be new line character
     }
 
@@ -60,4 +65,11 @@ public abstract class EnchantmentBase extends Enchantment {
      * @param level the level
      */
     public void onLivingUpdate(EntityLivingBase entity, int level) {}
+    
+    
+    @Override
+    public int getMaxLevel() {
+	return maxLevel;
+    }
+
 }

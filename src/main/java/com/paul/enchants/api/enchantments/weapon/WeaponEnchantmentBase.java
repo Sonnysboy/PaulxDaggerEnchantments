@@ -14,8 +14,8 @@ public class WeaponEnchantmentBase extends EnchantmentBase {
      * @param slots    Slots it can be applied on
      * @param type     The custom type.
      */
-    protected WeaponEnchantmentBase(String name, Rarity rarityIn, EnumEnchantmentType type) {
-        super(name, rarityIn, type, new EntityEquipmentSlot[]{EntityEquipmentSlot.MAINHAND});
+    protected WeaponEnchantmentBase(String name, Rarity rarityIn, EnumEnchantmentType type, int maxLevel) {
+        super(name, rarityIn, type, new EntityEquipmentSlot[]{EntityEquipmentSlot.MAINHAND}, maxLevel);
     }
 
     /**
@@ -23,8 +23,8 @@ public class WeaponEnchantmentBase extends EnchantmentBase {
      * @param rarityIn Rarity This constructor will allow the enchantment to be put
      *                 onto any armor piece.
      */
-    protected WeaponEnchantmentBase(String name, Rarity rarityIn) {
-        this(name, rarityIn, EnumEnchantmentType.WEAPON);
+    protected WeaponEnchantmentBase(String name, Rarity rarityIn, int maxLevel) {
+        this(name, rarityIn, EnumEnchantmentType.WEAPON, maxLevel);
     }
 
     public String getIngameName() {
