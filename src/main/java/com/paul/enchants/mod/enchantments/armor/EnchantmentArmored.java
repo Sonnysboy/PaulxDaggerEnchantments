@@ -48,7 +48,7 @@ public class EnchantmentArmored extends EnchantmentBase {
 
     @Override
     public void onUserHurt(EntityLivingBase user, DamageSource source, int level, LivingHurtEvent event) {
-        event.setAmount(event.getAmount() - (event.getAmount() * (0.225f * level)));
+        event.setAmount(event.getAmount() - (event.getAmount() * (0.05f * level)));
         ParticleUtils.spawnBlockBreakParticles(user.getPosition().add(0, 0.5, 0), Blocks.DIAMOND_BLOCK);
         Minecraft.getMinecraft().world.playSound(user.getPosition(), SoundEvents.BLOCK_METAL_BREAK, SoundCategory.BLOCKS, 1, 1, false);
     }

@@ -36,8 +36,6 @@ public class EnchantmentExecute extends WeaponEnchantmentBase {
 
     }
 
-
-
     @Override
     public String getIngameName() {
 	// TODO Auto-generated method stub
