@@ -27,17 +27,5 @@ public class WeaponEnchantmentBase extends EnchantmentBase {
         this(name, rarityIn, EnumEnchantmentType.WEAPON, maxLevel);
     }
 
-    public String getIngameName() {
-        return "";
-    }
 
-    //    this is because i can't seem to get localisation to work.
-    @Override
-    public String getTranslatedName(int level) {
-        if (getIngameName().equals(""))
-            return super.getTranslatedName(level);
-        String s = getIngameName();
-        return level == 1 && this.getMaxLevel() == 1 ? s
-                : s + " " + I18n.translateToLocal("enchantment.level." + level);
-    }
 }
