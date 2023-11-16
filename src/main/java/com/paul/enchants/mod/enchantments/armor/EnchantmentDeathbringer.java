@@ -5,6 +5,7 @@ import com.paul.enchants.api.enchantments.armor.ArmorEnchantmentBase;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -17,8 +18,8 @@ public class EnchantmentDeathbringer extends ArmorEnchantmentBase {
     }
     
     @Override
-    public void onUserAttack(EntityLivingBase attacker, Entity victim, int level, LivingHurtEvent event) {
-	
+    public void onUserAttack(EntityLivingBase attacker, Entity victim, int level, LivingHurtEvent event, ItemStack item) {
+
 	if (Math.random() < (level * 0.1)) {
 	    event.setAmount(event.getAmount() * 2);
 	}

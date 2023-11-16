@@ -5,6 +5,7 @@ import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -13,8 +14,9 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
  * Enchantments will register themselves
  */
 public abstract class EnchantmentBase extends Enchantment {
-    
+
     private int maxLevel;
+
     /**
      * @param name     The name of enchantment
      * @param rarityIn Rarity
@@ -30,7 +32,7 @@ public abstract class EnchantmentBase extends Enchantment {
 
     @SuppressWarnings("deprecation")
     public String[] getTooltipDetails() {
-        final String unloc = String.format("paulxdagger." + this.getName()+".tooltip");
+        final String unloc = String.format("paulxdagger." + this.getName() + ".tooltip");
         System.out.println(unloc);
         String loc = I18n.translateToLocalFormatted(unloc);
         System.out.println(loc);
@@ -44,8 +46,9 @@ public abstract class EnchantmentBase extends Enchantment {
      * @param source
      * @param level
      * @param event
+     * @param item   the item with the enchantment
      */
-    public void onUserHurt(EntityLivingBase user, DamageSource source, int level, LivingHurtEvent event) {
+    public void onUserHurt(EntityLivingBase user, DamageSource source, int level, LivingHurtEvent event, ItemStack item) {
     }
 
 
@@ -55,22 +58,27 @@ public abstract class EnchantmentBase extends Enchantment {
      * @param attacker The user attacking.
      * @param level
      * @param event
+     * @param item     the item with the enchantment
      */
-    public void onUserAttack(EntityLivingBase attacker, Entity victim, int level, LivingHurtEvent event) {
+    public void onUserAttack(EntityLivingBase attacker, Entity victim, int level, LivingHurtEvent event, ItemStack item) {
     }
 
     /**
      * Called when an entity with this enchantment is updated via LivingUpdateEvent
+     *
      * @param entity the entity
-     * @param level the level
+     * @param level  the level
+     * @param item   the item with the enchantment
      */
-    public void onLivingUpdate(EntityLivingBase entity, int level) {}
-    
-    
+    public void onLivingUpdate(EntityLivingBase entity, int level, ItemStack item) {
+    }
+
+
     @Override
     public int getMaxLevel() {
-	return maxLevel;
+        return maxLevel;
     }
+
     //    this is because i can't seem to get localisation to work.
     @Override
     public String getTranslatedName(int level) {

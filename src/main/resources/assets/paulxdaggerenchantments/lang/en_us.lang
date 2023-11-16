@@ -34,3 +34,6 @@ enchantment.paulxdaggerenchantments.implants.desc=Saturation
 
 enchantments.overload=Overload
 enchantment.paulxdaggerenchantments.overload.desc=Health Boost
+
+enchantments.experiencesiphon=Experience Siphon
+enchantment.paulxdaggerenchantments.experiencesiphon=Actively consumes your exp to repair your item.

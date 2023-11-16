@@ -5,6 +5,7 @@ import com.paul.enchants.mod.PaulAndDaggerEnchantments;
 import com.paul.enchants.mod.potions.EntityPotionTracker;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.MobEffects;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.common.Mod;
@@ -26,7 +27,7 @@ public class EnchantmentObsidianShield extends ArmorEnchantmentBase {
     }
 
     @Override
-    public void onLivingUpdate(EntityLivingBase ent, int level) {
+    public void onLivingUpdate(EntityLivingBase ent, int level, ItemStack item) {
         ent.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 4 * 20));
     }
 

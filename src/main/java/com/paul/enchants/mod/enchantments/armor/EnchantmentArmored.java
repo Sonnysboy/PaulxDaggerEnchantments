@@ -16,6 +16,7 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
@@ -47,7 +48,7 @@ public class EnchantmentArmored extends EnchantmentBase {
 
 
     @Override
-    public void onUserHurt(EntityLivingBase user, DamageSource source, int level, LivingHurtEvent event) {
+    public void onUserHurt(EntityLivingBase user, DamageSource source, int level, LivingHurtEvent event, ItemStack item) {
         event.setAmount(event.getAmount() - (event.getAmount() * (0.05f * level)));
         ParticleUtils.spawnBlockBreakParticles(user.getPosition().add(0, 0.5, 0), Blocks.DIAMOND_BLOCK);
         Minecraft.getMinecraft().world.playSound(user.getPosition(), SoundEvents.BLOCK_METAL_BREAK, SoundCategory.BLOCKS, 1, 1, false);

@@ -25,7 +25,7 @@ public class EnchantmentOverload extends ArmorEnchantmentBase {
 
 
     @Override
-    public void onLivingUpdate(EntityLivingBase entity, int level) {
+    public void onLivingUpdate(EntityLivingBase entity, int level, ItemStack item) {
         entity.addPotionEffect(new PotionEffect(MobEffects.HEALTH_BOOST, 100, level-1));
     }
 

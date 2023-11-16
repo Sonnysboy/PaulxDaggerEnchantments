@@ -4,6 +4,7 @@ import com.paul.enchants.api.enchantments.weapon.WeaponEnchantmentBase;
 import com.paul.enchants.mod.PaulAndDaggerEnchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -21,7 +22,7 @@ public class EnchantmentLifesteal extends WeaponEnchantmentBase {
 
 
     @Override
-    public void onUserAttack(EntityLivingBase attacker, Entity victim, int level, LivingHurtEvent event) {
+    public void onUserAttack(EntityLivingBase attacker, Entity victim, int level, LivingHurtEvent event, ItemStack item) {
         if (Math.random() < (0.05 * level)) {
 
             float regained = attacker.world.rand.nextFloat() * level;
@@ -29,7 +30,6 @@ public class EnchantmentLifesteal extends WeaponEnchantmentBase {
             attacker.heal(regained);
         }
     }
-
 
 
     @Override
