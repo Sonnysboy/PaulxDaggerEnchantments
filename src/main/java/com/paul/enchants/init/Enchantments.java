@@ -2,6 +2,7 @@ package com.paul.enchants.init;
 
 import com.paul.enchants.api.enchantments.EnchantmentBase;
 import com.paul.enchants.mod.PaulAndDaggerEnchantments;
+import com.paul.enchants.mod.enchantments.all.EnchantmentExperienceSiphon;
 import com.paul.enchants.mod.enchantments.armor.EnchantmentArmored;
 import com.paul.enchants.mod.enchantments.armor.EnchantmentDeathGod;
 import com.paul.enchants.mod.enchantments.armor.EnchantmentDeathbringer;
@@ -50,10 +51,13 @@ public class Enchantments {
     public static final EnchantmentBase IMPLANTS = new EnchantmentImplants();
 
 
+    public static final EnchantmentBase EXP_SIPHON = new EnchantmentExperienceSiphon();
+
+
 
     @SubscribeEvent
     public static void register(RegistryEvent.Register<Enchantment> e) {
-        e.getRegistry().registerAll(ARMORED, ENDER_WALKER, ENLIGHTED, OBSIDIAN_SHIELD, OVERLOAD, EXECUTE, LIFESTEAL, DEATHBRINGER, VALOR, DEATH_GOD, ENDER_SHIFT, IMPLANTS);
+        e.getRegistry().registerAll(ARMORED, ENDER_WALKER, ENLIGHTED, OBSIDIAN_SHIELD, OVERLOAD, EXECUTE, LIFESTEAL, DEATHBRINGER, VALOR, DEATH_GOD, ENDER_SHIFT, IMPLANTS, EXP_SIPHON);
         System.out.println("Registered all enchantments!");
     }
 
