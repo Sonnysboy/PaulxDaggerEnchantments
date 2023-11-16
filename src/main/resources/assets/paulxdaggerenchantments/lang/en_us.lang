@@ -37,3 +37,7 @@ enchantment.paulxdaggerenchantments.overload.desc=Health Boost
 
 enchantments.experiencesiphon=Experience Siphon
 enchantment.paulxdaggerenchantments.experiencesiphon=Actively consumes your exp to repair your item.
+
+
+enchantments.creeperarmor=Creeper Armor
+enchantment.paulxdaggerenchantments.creeperarmor=Grants immunity to explosions.

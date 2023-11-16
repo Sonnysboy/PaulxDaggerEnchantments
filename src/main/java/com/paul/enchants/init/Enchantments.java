@@ -3,16 +3,7 @@ package com.paul.enchants.init;
 import com.paul.enchants.api.enchantments.EnchantmentBase;
 import com.paul.enchants.mod.PaulAndDaggerEnchantments;
 import com.paul.enchants.mod.enchantments.all.EnchantmentExperienceSiphon;
-import com.paul.enchants.mod.enchantments.armor.EnchantmentArmored;
-import com.paul.enchants.mod.enchantments.armor.EnchantmentDeathGod;
-import com.paul.enchants.mod.enchantments.armor.EnchantmentDeathbringer;
-import com.paul.enchants.mod.enchantments.armor.EnchantmentEnderShift;
-import com.paul.enchants.mod.enchantments.armor.EnchantmentEnderWalker;
-import com.paul.enchants.mod.enchantments.armor.EnchantmentEnlighted;
-import com.paul.enchants.mod.enchantments.armor.EnchantmentImplants;
-import com.paul.enchants.mod.enchantments.armor.EnchantmentObsidianShield;
-import com.paul.enchants.mod.enchantments.armor.EnchantmentOverload;
-import com.paul.enchants.mod.enchantments.armor.EnchantmentValor;
+import com.paul.enchants.mod.enchantments.armor.*;
 import com.paul.enchants.mod.enchantments.weapon.EnchantmentExecute;
 import com.paul.enchants.mod.enchantments.weapon.EnchantmentLifesteal;
 
@@ -54,10 +45,13 @@ public class Enchantments {
     public static final EnchantmentBase EXP_SIPHON = new EnchantmentExperienceSiphon();
 
 
+    public static final EnchantmentBase CREEPER_ARMOR = new EnchantmentCreeperArmor();
+
+
 
     @SubscribeEvent
     public static void register(RegistryEvent.Register<Enchantment> e) {
-        e.getRegistry().registerAll(ARMORED, ENDER_WALKER, ENLIGHTED, OBSIDIAN_SHIELD, OVERLOAD, EXECUTE, LIFESTEAL, DEATHBRINGER, VALOR, DEATH_GOD, ENDER_SHIFT, IMPLANTS, EXP_SIPHON);
+        e.getRegistry().registerAll(ARMORED, ENDER_WALKER, ENLIGHTED, OBSIDIAN_SHIELD, OVERLOAD, EXECUTE, LIFESTEAL, DEATHBRINGER, VALOR, DEATH_GOD, ENDER_SHIFT, IMPLANTS, EXP_SIPHON, CREEPER_ARMOR);
         System.out.println("Registered all enchantments!");
     }
 

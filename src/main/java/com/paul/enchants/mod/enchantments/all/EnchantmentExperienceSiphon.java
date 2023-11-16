@@ -24,17 +24,15 @@ public class EnchantmentExperienceSiphon extends EnchantmentBase {
     public void onLivingUpdate(EntityLivingBase entity, int level, ItemStack item) {
         int damage;
         int playerExp;
-        if (ticks++ % 15 != 0)                     return; // this is a timed enchantment.
+        if (ticks++ % 15 != 0) return; // this is a timed enchantment.
         if ((damage = item.getItemDamage()) == 0) return;
-        if (!(entity instanceof EntityPlayer))    return;
+        if (!(entity instanceof EntityPlayer)) return;
         EntityPlayer ep = (EntityPlayer) entity;
         if ((playerExp = ep.experienceTotal) <= 0) return;
         int random = Math.min(ThreadLocalRandom.current().nextInt(1, 5), playerExp);
         if (damage - random < 0) return;
         ep.experienceTotal -= random;
         item.setItemDamage(damage - random);
-
-
 
 
     }
