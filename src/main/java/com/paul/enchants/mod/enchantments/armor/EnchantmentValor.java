@@ -36,7 +36,6 @@ public class EnchantmentValor extends ArmorEnchantmentBase {
 
     @Override
     public String getIngameName() {
-        // TODO Auto-generated method stub
         return TextFormatting.YELLOW + "Valor";
     }
 
